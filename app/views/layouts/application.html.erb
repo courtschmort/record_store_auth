@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>RailsRecordStore</title>
+  <%= csrf_meta_tags %>
+
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
+
+<body>
+  <% if current_user %>
+    <%= current_user.username %> | <%= current_user.email %> | <%= link_to "Profile", "/users/#{current_user.id}" %> | <%= link_to "Sign out", '/signout' %>
+  <% end %>
+
+  <p><%= flash[:alert] %></p>
+  <%= flash[:notice] %>
+  <%= yield %>
+</body>
+</html>
